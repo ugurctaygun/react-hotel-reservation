@@ -1,0 +1,14 @@
+header {
+  background-color: $primary;
+  color: white;
+  padding: 40px 50px;
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    h1 {
+      margin: 0;
+      padding: 0;
+    }
+  }
+}
