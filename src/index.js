@@ -4,11 +4,22 @@ import "./index.css";
 import App from "./App";
 import "./main.scss";
 import reportWebVitals from "./reportWebVitals";
+import { configureStore } from "@reduxjs/toolkit";
+import { Provider } from "react-redux";
+import reservatiorReducer from "./features/reservation";
+
+const store = configureStore({
+  reducer: {
+    reservation: reservatiorReducer,
+  },
+});
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  <Provider store={store}>
+    <React.StrictMode>
+      <App />
+    </React.StrictMode>
+  </Provider>,
   document.getElementById("root")
 );
 

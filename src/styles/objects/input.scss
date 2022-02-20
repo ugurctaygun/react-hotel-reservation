@@ -16,4 +16,29 @@
       padding: 0 50px;
     }
   }
+  &__error {
+    color: red;
+    font-size: 12px;
+  }
+  &__container {
+    display: flex;
+    padding: 25px 0;
+    > div {
+      width: 25%;
+      box-sizing: border-box;
+      padding: 25px;
+      border: 1px solid #000;
+      border-right: none;
+      &:last-child {
+        border-right: 1px solid #000;
+      }
+    }
+  }
+  &__field {
+    display: flex;
+    flex-direction: column;
+    & label {
+      margin-bottom: 10px;
+    }
+  }
 }
