@@ -4,28 +4,44 @@ import React, { useState, useEffect, useCallback, useMemo } from "react";
 import Api from "../helper/api";
 import DatePicker from "./DatePicker";
 import GuestNumberPicker from "./GuestNumberPicker";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { updateState } from "../features/reservation";
+import Loader from "./Loader";
 
 function HotelSelection() {
+  const dispatch = useDispatch();
   const reservation = useSelector((state) => state.reservation.value);
-  let [hotelList, setHotelList] = useState("");
+  let [hotelList, setHotelList] = useState();
   let [selectedHotel, setSelectedHotel] = useState();
   const api = useMemo(() => new Api(), []);
   const fetchHotel = useCallback(() => {
     api
       .getHotelList()
-      .then((response) => setHotelList(response.data))
+      .then((response) => {
+        setHotelList(response.data);
+        console.log(response.data);
+      })
       .catch((err) => console.log(err));
   }, [api]);
   const fetchHotelDetails = (selectedID) => {
     api
       .getHotelDetails()
       .then((response) => {
-        console.log(response.data);
         setSelectedHotel(
           Object.assign(
             ...response.data.filter((item) => item.hotel_id === +selectedID)
           )
+        );
+        dispatch(
+          updateState({
+            ...reservation,
+            selectedHotelName: hotelList.filter(
+              (item) => item.id === selectedID
+            )[0].hotel_name,
+            selectedHotel: Object.assign(
+              ...response.data.filter((item) => item.hotel_id === +selectedID)
+            ),
+          })
         );
       })
       .catch((err) => console.log(err));
@@ -37,7 +53,6 @@ function HotelSelection() {
 
   let handleHotelChange = (e) => {
     fetchHotelDetails(e.target.value);
-    console.log(selectedHotel);
   };
 
   return (
@@ -88,7 +103,7 @@ function HotelSelection() {
           )}
         </div>
       ) : (
-        <div>loading</div>
+        <Loader />
       )}
     </section>
   );
