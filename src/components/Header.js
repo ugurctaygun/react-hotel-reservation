@@ -2,7 +2,7 @@ function Header() {
   return (
     <header>
       <nav className="naviga">
-        <div class="nav__logo">
+        <div className="nav__logo">
           <h1>Otel</h1>
           <h5>Rezervasyon Sistemi</h5>
         </div>
