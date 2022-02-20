@@ -2,4 +2,9 @@
   outline: none;
   height: 100%;
   padding: 15px;
+  font-weight: bold;
+  &--primary {
+    background-color: $primary;
+    color: white;
+  }
 }

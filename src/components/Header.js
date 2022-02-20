@@ -1,6 +1,3 @@
-// import "../styles/components/header.scss";
-// import "../styles/objects/button.scss";
-
 function Header() {
   return (
     <header>
