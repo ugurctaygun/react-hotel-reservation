@@ -5,6 +5,7 @@ function GuestNumberPicker({
   maxNumberAllowed,
   valid,
   onChange,
+  value,
 }) {
   return (
     <div className="o-input__field">
@@ -18,6 +19,7 @@ function GuestNumberPicker({
           max={maxNumberAllowed}
           placeholder="0"
           onChange={onChange}
+          value={value ? value : ""}
         />
       ) : (
         <>

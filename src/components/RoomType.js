@@ -18,7 +18,6 @@ function RoomType({
     );
     e.target.parentElement.classList.add("c-rooms__card--active");
     setChecked(e.target.id);
-    console.log(checked);
   };
   return (
     <section className="o-container">

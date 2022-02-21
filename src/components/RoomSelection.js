@@ -3,7 +3,6 @@ import RoomType from "./RoomType";
 
 function RoomSelection() {
   const reservation = useSelector((state) => state.reservation.value);
-  console.log(reservation);
   let {
     selectedHotelName,
     selectedHotel,

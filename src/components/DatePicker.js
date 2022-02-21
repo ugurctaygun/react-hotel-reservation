@@ -1,4 +1,4 @@
-function DatePicker({ label, htmlFor, name, onChange }) {
+function DatePicker({ label, htmlFor, name, onChange, value }) {
   return (
     <div className="o-input__field">
       <label htmlFor={htmlFor}>{label} :</label>
@@ -9,6 +9,7 @@ function DatePicker({ label, htmlFor, name, onChange }) {
         name={name}
         min={new Date().toISOString().slice(0, 10)}
         onChange={onChange}
+        value={value ? value : ""}
       />
     </div>
   );

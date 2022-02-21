@@ -11,6 +11,7 @@ import Loader from "./Loader";
 function HotelSelection() {
   const dispatch = useDispatch();
   const reservation = useSelector((state) => state.reservation.value);
+  console.log(reservation);
   let [hotelList, setHotelList] = useState();
   let [selectedHotel, setSelectedHotel] = useState();
   const api = useMemo(() => new Api(), []);
@@ -48,6 +49,9 @@ function HotelSelection() {
 
   useEffect(() => {
     fetchHotel();
+    if (reservation.selectedHotel) {
+      setSelectedHotel(reservation.selectedHotel);
+    }
   }, [fetchHotel]);
 
   let handleHotelChange = (e) => {
@@ -71,7 +75,12 @@ function HotelSelection() {
           <div className="o-input--search">
             <FontAwesomeIcon icon={faSearch} />
             <select className="o-input " onChange={handleHotelChange}>
-              <option>Rezervasyon yapmak istediğiniz oteli seçiniz.</option>
+              {reservation.selectedHotel ? (
+                <option>{reservation.selectedHotelName}.</option>
+              ) : (
+                <option>Rezervasyon yapmak istediğiniz oteli seçiniz.</option>
+              )}
+
               {hotelList.map((hotel) => (
                 <option key={hotel.id} value={hotel.id}>
                   {hotel.hotel_name}
@@ -86,12 +95,14 @@ function HotelSelection() {
                 htmlFor={"start-date"}
                 name={"startDate"}
                 onChange={handleInputChange}
+                value={reservation.startDate && reservation.startDate}
               />
               <DatePicker
                 label={"Çıkış Tarihi"}
                 htmlFor={"checkout-date"}
                 name={"endDate"}
                 onChange={handleInputChange}
+                value={reservation.endDate && reservation.endDate}
               />
               <GuestNumberPicker
                 label={"Yetişkin Sayısı"}
@@ -104,6 +115,7 @@ function HotelSelection() {
                 }
                 valid={true}
                 onChange={handleInputChange}
+                value={reservation.adultGuest && reservation.adultGuest}
               />
               <GuestNumberPicker
                 label={"Çocuk Sayısı"}
@@ -111,6 +123,7 @@ function HotelSelection() {
                 name={"childGuest"}
                 valid={selectedHotel.child_status}
                 onChange={handleInputChange}
+                value={reservation.childGuest && reservation.childGuest}
               />
             </div>
           )}
