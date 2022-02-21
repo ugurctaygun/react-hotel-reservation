@@ -24,11 +24,24 @@ store.subscribe(() => {
 });
 
 if (persistedState) {
+  let {
+    step,
+    selectedHotelName,
+    selectedHotel,
+    startDate,
+    endDate,
+    adultGuest,
+    childGuest,
+  } = persistedState.reservation.value;
   store.dispatch(
     updateState({
-      step: persistedState.reservation.value.step,
-      selectedHotel: persistedState.reservation.value.selectedHotel,
-      selectedHotelName: persistedState.reservation.value.selectedHotelName,
+      step: step,
+      selectedHotel: selectedHotel,
+      selectedHotelName: selectedHotelName,
+      startDate: startDate,
+      endDate: endDate,
+      adultGuest: adultGuest,
+      childGuest: childGuest,
     })
   );
 }

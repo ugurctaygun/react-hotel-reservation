@@ -1,5 +1,3 @@
-import { useState } from "react";
-
 function RoomType({
   sectionName,
   selection,
@@ -9,7 +7,6 @@ function RoomType({
   guestNo,
   price,
 }) {
-  let [checked, setChecked] = useState(false);
   const changeHandler = (e) => {
     let container = e.target.parentElement.parentElement;
     let cards = container.children;
@@ -17,7 +14,6 @@ function RoomType({
       element.classList.remove("c-rooms__card--active")
     );
     e.target.parentElement.classList.add("c-rooms__card--active");
-    setChecked(e.target.id);
   };
   return (
     <section className="o-container">
@@ -34,6 +30,9 @@ function RoomType({
               <label htmlFor={item.title}>
                 <p>{item.title}</p>
                 <img src={item.photo} alt={item.description} />
+                <span>{totalDay} Gün</span>
+                <span>{guestNo}</span>
+                <p>Price: {item.price * totalDay}</p>
               </label>
             </div>
           ))}

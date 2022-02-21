@@ -1,8 +1,11 @@
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
+import { useState, useEffect } from "react";
 import RoomType from "./RoomType";
 
 function RoomSelection() {
+  let [totalDate, setTotalDate] = useState(0);
   const reservation = useSelector((state) => state.reservation.value);
+  console.log(reservation);
   let {
     selectedHotelName,
     selectedHotel,
@@ -11,6 +14,20 @@ function RoomSelection() {
     adultGuest,
     childGuest,
   } = reservation;
+
+  let getTotalStayDate = (start, end) => {
+    const startDate = new Date(start);
+    const endDate = new Date(end);
+    const diffTime = Math.abs(endDate - startDate);
+    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+    setTotalDate(diffDays);
+  };
+
+  useEffect(() => {
+    if (reservation.startDate) {
+      getTotalStayDate(reservation.startDate, reservation.endDate);
+    }
+  }, [reservation.startDate, reservation.endDate]);
 
   return (
     <>
@@ -36,6 +53,7 @@ function RoomSelection() {
       <RoomType
         sectionName={"Oda Tipi Seçiniz"}
         selection={selectedHotel.room_type}
+        totalDay={totalDate}
       />
       <RoomType
         sectionName={"Manzara Seçimi"}

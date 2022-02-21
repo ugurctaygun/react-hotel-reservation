@@ -52,7 +52,7 @@ function HotelSelection() {
     if (reservation.selectedHotel) {
       setSelectedHotel(reservation.selectedHotel);
     }
-  }, [fetchHotel]);
+  }, [fetchHotel, reservation.selectedHotel]);
 
   let handleHotelChange = (e) => {
     fetchHotelDetails(e.target.value);
@@ -60,10 +60,11 @@ function HotelSelection() {
 
   let handleInputChange = (e) => {
     const value = e.target.value;
+    const name = e.target.name;
     dispatch(
       updateState({
         ...reservation,
-        [e.target.name]: value,
+        [name]: value,
       })
     );
   };
@@ -75,8 +76,8 @@ function HotelSelection() {
           <div className="o-input--search">
             <FontAwesomeIcon icon={faSearch} />
             <select className="o-input " onChange={handleHotelChange}>
-              {reservation.selectedHotel ? (
-                <option>{reservation.selectedHotelName}.</option>
+              {reservation.selectedHotelName ? (
+                <option>{reservation.selectedHotelName}</option>
               ) : (
                 <option>Rezervasyon yapmak istediğiniz oteli seçiniz.</option>
               )}
@@ -121,7 +122,9 @@ function HotelSelection() {
                 label={"Çocuk Sayısı"}
                 htmlFor={"child-numder"}
                 name={"childGuest"}
-                valid={selectedHotel.child_status}
+                valid={
+                  selectedHotel.child_status ? selectedHotel.child_status : true
+                }
                 onChange={handleInputChange}
                 value={reservation.childGuest && reservation.childGuest}
               />
