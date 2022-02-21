@@ -19,7 +19,6 @@ function HotelSelection() {
       .getHotelList()
       .then((response) => {
         setHotelList(response.data);
-        console.log(response.data);
       })
       .catch((err) => console.log(err));
   }, [api]);
@@ -55,6 +54,16 @@ function HotelSelection() {
     fetchHotelDetails(e.target.value);
   };
 
+  let handleInputChange = (e) => {
+    const value = e.target.value;
+    dispatch(
+      updateState({
+        ...reservation,
+        [e.target.name]: value,
+      })
+    );
+  };
+
   return (
     <section className="o-container">
       {hotelList ? (
@@ -75,29 +84,33 @@ function HotelSelection() {
               <DatePicker
                 label={"Giriş Tarihi"}
                 htmlFor={"start-date"}
-                name={"trip-start"}
+                name={"startDate"}
+                onChange={handleInputChange}
               />
               <DatePicker
                 label={"Çıkış Tarihi"}
                 htmlFor={"checkout-date"}
-                name={"trip-end"}
+                name={"endDate"}
+                onChange={handleInputChange}
               />
               <GuestNumberPicker
                 label={"Yetişkin Sayısı"}
                 htmlFor={"adult-numder"}
-                name={"adult-numder"}
+                name={"adultGuest"}
                 maxNumberAllowed={
                   selectedHotel.max_adult_size
                     ? selectedHotel.max_adult_size + 1
                     : 5
                 }
                 valid={true}
+                onChange={handleInputChange}
               />
               <GuestNumberPicker
                 label={"Çocuk Sayısı"}
                 htmlFor={"child-numder"}
-                name={"child-numder"}
+                name={"childGuest"}
                 valid={selectedHotel.child_status}
+                onChange={handleInputChange}
               />
             </div>
           )}

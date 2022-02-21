@@ -1,7 +1,7 @@
 function Header() {
   return (
     <header>
-      <nav className="naviga">
+      <nav className="nav">
         <div className="nav__logo">
           <h1>Otel</h1>
           <h5>Rezervasyon Sistemi</h5>

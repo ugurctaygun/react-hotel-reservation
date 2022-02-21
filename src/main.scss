@@ -1,8 +1,13 @@
 @import "./styles/settings/theme";
+
+//COMPONENTS
 @import "./styles/components/header";
 @import "./styles/components/progress";
 @import "./styles/components/selection";
 @import "./styles/components/loader";
+@import "./styles/components/rooms";
+
+//OBJECTS
 @import "./styles/objects/button";
 @import "./styles/objects/container";
 @import "./styles/objects/input";

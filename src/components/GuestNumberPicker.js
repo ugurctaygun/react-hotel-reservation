@@ -2,9 +2,9 @@ function GuestNumberPicker({
   label,
   htmlFor,
   name,
-  minNumberAllowed,
   maxNumberAllowed,
   valid,
+  onChange,
 }) {
   return (
     <div className="o-input__field">
@@ -14,9 +14,10 @@ function GuestNumberPicker({
           type="number"
           id={htmlFor}
           name={name}
-          min={minNumberAllowed}
+          min="0"
           max={maxNumberAllowed}
           placeholder="0"
+          onChange={onChange}
         />
       ) : (
         <>
@@ -26,6 +27,7 @@ function GuestNumberPicker({
             name={name}
             disabled
             placeholder="0"
+            onChange={onChange}
           />{" "}
           <p className="o-input__error">
             *Otel şu anda çocuk misafir kabul etmemektedir.

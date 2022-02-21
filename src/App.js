@@ -7,7 +7,6 @@ import { useSelector } from "react-redux";
 
 function App() {
   const reservation = useSelector((state) => state.reservation.value);
-  console.log(reservation);
   return (
     <div className="App">
       <Header />

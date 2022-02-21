@@ -11,7 +11,6 @@ import { updateState } from "./features/reservation";
 import { loadState, saveState } from "./helper/localStorage";
 
 const persistedState = loadState();
-console.log(persistedState);
 
 const store = configureStore({
   persistedState,
