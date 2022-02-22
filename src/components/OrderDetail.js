@@ -64,7 +64,7 @@ function OrderDetail({ result }) {
             <span>{roomScenicName}</span>
           </div>
         </div>
-        {result && (
+        {!result && (
           <div className="c-order__coupon">
             <input
               type="tel"

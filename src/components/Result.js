@@ -56,7 +56,7 @@ function Result() {
           </div>
         </div>
         <div className="c-result__receipt">
-          <OrderDetail result={false} />
+          <OrderDetail result={true} />
         </div>
       </div>
     </section>

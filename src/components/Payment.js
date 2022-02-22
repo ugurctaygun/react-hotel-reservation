@@ -6,7 +6,7 @@ function Payment() {
     <section className="o-container">
       <div className="c-payment__container">
         <CreditCard />
-        <OrderDetail />
+        <OrderDetail result={false} />
       </div>
     </section>
   );
