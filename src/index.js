@@ -32,6 +32,8 @@ if (persistedState) {
     endDate,
     adultGuest,
     childGuest,
+    roomType,
+    roomScenic,
   } = persistedState.reservation.value;
   store.dispatch(
     updateState({
@@ -42,6 +44,8 @@ if (persistedState) {
       endDate: endDate,
       adultGuest: adultGuest,
       childGuest: childGuest,
+      roomType: roomType,
+      roomScenic: roomScenic,
     })
   );
 }

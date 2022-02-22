@@ -5,7 +5,6 @@ import RoomType from "./RoomType";
 function RoomSelection() {
   let [totalDate, setTotalDate] = useState(0);
   const reservation = useSelector((state) => state.reservation.value);
-  console.log(reservation);
   let {
     selectedHotelName,
     selectedHotel,
@@ -54,6 +53,9 @@ function RoomSelection() {
         sectionName={"Oda Tipi Seçiniz"}
         selection={selectedHotel.room_type}
         totalDay={totalDate}
+        type={"room"}
+        adultGuest={adultGuest}
+        childGuest={childGuest}
       />
       <RoomType
         sectionName={"Manzara Seçimi"}

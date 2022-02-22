@@ -19,7 +19,7 @@
   &__type {
     h4 {
       border-bottom: 1px solid $secondary;
-      padding-bottom: 10px;
+      padding-bottom: 15px;
       margin-bottom: 0;
     }
   }
@@ -27,23 +27,51 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    margin-top: 10px;
+    margin-top: 25px;
   }
   &__card {
     width: calc(31% - 15px);
-    padding: 15px;
+
     box-sizing: border-box;
     border: 2px solid $secondary;
     border-radius: 5px;
+    cursor: pointer;
     img {
       width: 100%;
     }
-
+    label {
+      cursor: pointer;
+      display: block;
+      padding: 15px;
+    }
     input[type="radio"] {
       display: none;
     }
     &--active {
       border: 2px solid #609562;
+    }
+    &--percent {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      span {
+        font-weight: bold;
+        font-size: 18px;
+        color: #609562;
+      }
+    }
+    &--column {
+      display: flex;
+      flex-direction: column;
+    }
+    &--info {
+      margin-top: 15px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      p {
+        font-size: 22px;
+      }
     }
   }
 }

@@ -51,6 +51,7 @@ function HotelSelection() {
     fetchHotel();
     if (reservation.selectedHotel) {
       setSelectedHotel(reservation.selectedHotel);
+      console.log(reservation.selectedHotel.child_status);
     }
   }, [fetchHotel, reservation.selectedHotel]);
 
@@ -89,7 +90,7 @@ function HotelSelection() {
               ))}
             </select>
           </div>
-          {selectedHotel && (
+          {reservation.selectedHotelName && (
             <div className="o-input__container">
               <DatePicker
                 label={"Giriş Tarihi"}
@@ -122,9 +123,7 @@ function HotelSelection() {
                 label={"Çocuk Sayısı"}
                 htmlFor={"child-numder"}
                 name={"childGuest"}
-                valid={
-                  selectedHotel.child_status ? selectedHotel.child_status : true
-                }
+                valid={reservation.selectedHotel.child_status}
                 onChange={handleInputChange}
                 value={reservation.childGuest && reservation.childGuest}
               />

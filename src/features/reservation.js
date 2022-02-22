@@ -9,8 +9,10 @@ export const reservationSlice = createSlice({
       selectedHotelName: "",
       startDate: "",
       endDate: "",
-      adultGuest: 0,
-      childGuest: 0,
+      adultGuest: "",
+      childGuest: "",
+      roomType: "",
+      roomScenic: "",
     },
   },
   reducers: {
