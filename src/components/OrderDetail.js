@@ -82,20 +82,20 @@ function OrderDetail() {
           <div className="c-order__price">
             <div className="c-order__price--section">
               <p>Oda Fiyatı</p>
-              <span>{roomPrice}</span>
+              <span>{roomPrice} TL</span>
             </div>
             <div className="c-order__price--section">
               <p>Fiyat Etki Oranı</p>
-              <span>{priceRate}</span>
+              <span>%{priceRate}</span>
             </div>
             <div className="c-order__price--section">
               <p>Konaklama</p>
-              <span>{totalPrice}</span>
+              <span>{totalPrice} TL</span>
             </div>
             {discount && (
               <div className="c-order__price--section">
                 <p>İndirim</p>
-                <span>100</span>
+                <span>-100 TL</span>
               </div>
             )}
 

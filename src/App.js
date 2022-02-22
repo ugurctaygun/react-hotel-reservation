@@ -5,6 +5,7 @@ import HotelSelection from "./components/HotelSelection";
 import RoomSelection from "./components/RoomSelection";
 import { useSelector } from "react-redux";
 import Payment from "./components/Payment";
+import Result from "./components/Result";
 
 function App() {
   const reservation = useSelector((state) => state.reservation.value);
@@ -15,6 +16,7 @@ function App() {
       {reservation.step === 1 && <HotelSelection />}
       {reservation.step === 2 && <RoomSelection />}
       {reservation.step === 3 && <Payment />}
+      {reservation.step === 4 && <Result />}
       <ProgressNavigation />
     </div>
   );

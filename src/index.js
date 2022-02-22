@@ -39,6 +39,7 @@ if (persistedState) {
     totalPrice,
     priceRate,
     roomPrice,
+    cardInfo,
   } = persistedState.reservation.value;
   store.dispatch(
     updateState({
@@ -56,6 +57,7 @@ if (persistedState) {
       totalPrice: totalPrice,
       priceRate: priceRate,
       roomPrice: roomPrice,
+      cardInfo: cardInfo,
     })
   );
 }

@@ -18,6 +18,7 @@ export const reservationSlice = createSlice({
       totalPrice: "",
       priceRate: "",
       roomPrice: "",
+      cardInfo: {},
     },
   },
   reducers: {

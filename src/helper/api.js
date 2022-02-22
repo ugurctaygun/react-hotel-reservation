@@ -26,4 +26,7 @@ export default class Api {
   getHotelDetails = (params) => {
     return this.init().get("/hotel-details", { params: params });
   };
+  postOrderDetails = (params) => {
+    return this.init().post(`/hotel-bookings`, params);
+  };
 }
