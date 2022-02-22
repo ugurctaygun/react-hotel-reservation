@@ -1,0 +1,21 @@
+.c-result {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  svg {
+    color: green;
+    font-size: 56px;
+  }
+  &__header {
+    text-align: center;
+    p {
+      font-size: 18px;
+    }
+  }
+  &__buttons {
+    margin: 25px 0;
+    button {
+      margin: 0 15px;
+    }
+  }
+}

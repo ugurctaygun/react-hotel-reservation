@@ -12,6 +12,10 @@
     flex-direction: column;
     justify-content: center;
     width: 50%;
+    @media (max-width: 900px) {
+      width: 90%;
+      margin: 0 auto;
+    }
   }
   &__form {
     display: flex;

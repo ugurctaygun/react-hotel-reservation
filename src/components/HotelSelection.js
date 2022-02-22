@@ -50,7 +50,6 @@ function HotelSelection() {
     fetchHotel();
     if (reservation.selectedHotel) {
       setSelectedHotel(reservation.selectedHotel);
-      console.log(reservation.selectedHotel.child_status);
     }
   }, [fetchHotel, reservation.selectedHotel]);
 

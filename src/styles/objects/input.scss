@@ -23,15 +23,12 @@
   &__container {
     display: flex;
     padding: 25px 0;
+    flex-wrap: wrap;
     > div {
       width: 25%;
       box-sizing: border-box;
       padding: 25px;
       border: 1px solid #000;
-      border-right: none;
-      &:last-child {
-        border-right: 1px solid #000;
-      }
     }
   }
   &__field {
@@ -39,6 +36,18 @@
     flex-direction: column;
     & label {
       margin-bottom: 10px;
+    }
+  }
+  @media (max-width: 990px) {
+    &__container {
+      flex-direction: column;
+      > div {
+        width: 100%;
+      }
+    }
+    &__field {
+      width: 100%;
+      margin-bottom: 5px;
     }
   }
 }

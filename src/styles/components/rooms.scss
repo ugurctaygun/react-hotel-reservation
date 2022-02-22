@@ -28,14 +28,20 @@
     flex-wrap: wrap;
     justify-content: space-between;
     margin-top: 25px;
+    @media (max-width: 990px) {
+      flex-direction: column;
+    }
   }
   &__card {
     width: calc(31% - 15px);
-
     box-sizing: border-box;
     border: 2px solid $secondary;
     border-radius: 5px;
     cursor: pointer;
+    @media (max-width: 990px) {
+      width: 90%;
+      margin: 0 auto 25px auto;
+    }
     img {
       width: 100%;
     }

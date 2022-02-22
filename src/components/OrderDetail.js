@@ -2,7 +2,7 @@ import { useSelector } from "react-redux";
 
 import { useState } from "react";
 
-function OrderDetail() {
+function OrderDetail({ result }) {
   const reservation = useSelector((state) => state.reservation.value);
   let {
     selectedHotelName,
@@ -64,20 +64,22 @@ function OrderDetail() {
             <span>{roomScenicName}</span>
           </div>
         </div>
+        {result && (
+          <div className="c-order__coupon">
+            <input
+              type="tel"
+              placeholder="Kupon Kodu (CODE100)"
+              onChange={couponInputHandler}
+            />
+            <button
+              className="o-button o-button--primary"
+              onClick={couponButtonHandler}
+            >
+              Kodu Kullan
+            </button>
+          </div>
+        )}
 
-        <div className="c-order__coupon">
-          <input
-            type="tel"
-            placeholder="Kupon Kodu (CODE100)"
-            onChange={couponInputHandler}
-          />
-          <button
-            className="o-button o-button--primary"
-            onClick={couponButtonHandler}
-          >
-            Kodu Kullan
-          </button>
-        </div>
         <div className="c-order__details--container">
           <div className="c-order__price">
             <div className="c-order__price--section">
