@@ -33,7 +33,12 @@ if (persistedState) {
     adultGuest,
     childGuest,
     roomType,
+    roomTypeName,
     roomScenic,
+    roomScenicName,
+    totalPrice,
+    priceRate,
+    roomPrice,
   } = persistedState.reservation.value;
   store.dispatch(
     updateState({
@@ -46,6 +51,11 @@ if (persistedState) {
       childGuest: childGuest,
       roomType: roomType,
       roomScenic: roomScenic,
+      roomTypeName: roomTypeName,
+      roomScenicName: roomScenicName,
+      totalPrice: totalPrice,
+      priceRate: priceRate,
+      roomPrice: roomPrice,
     })
   );
 }

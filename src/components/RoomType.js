@@ -21,18 +21,28 @@ function RoomType({
       element.classList.remove("c-rooms__card--active")
     );
     e.target.parentElement.classList.add("c-rooms__card--active");
+
     if (type === "room") {
+      let selectedRoomTypePrice =
+        reservation.selectedHotel.room_type[e.target.value - 1];
       dispatch(
         updateState({
           ...reservation,
           roomType: e.target.value,
+          roomTypeName: e.target.id,
+          roomPrice: selectedRoomTypePrice.price,
+          totalPrice: selectedRoomTypePrice.price * totalDay,
         })
       );
     } else {
+      let selectedViewPercent =
+        reservation.selectedHotel.room_scenic[e.target.value - 1];
       dispatch(
         updateState({
           ...reservation,
           roomScenic: e.target.value,
+          roomScenicName: e.target.id,
+          priceRate: selectedViewPercent.price_rate,
         })
       );
     }

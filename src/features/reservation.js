@@ -12,7 +12,12 @@ export const reservationSlice = createSlice({
       adultGuest: "",
       childGuest: "",
       roomType: "",
+      roomTypeName: "",
       roomScenic: "",
+      roomScenicName: "",
+      totalPrice: "",
+      priceRate: "",
+      roomPrice: "",
     },
   },
   reducers: {

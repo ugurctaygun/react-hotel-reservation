@@ -11,7 +11,6 @@ import Loader from "./Loader";
 function HotelSelection() {
   const dispatch = useDispatch();
   const reservation = useSelector((state) => state.reservation.value);
-  console.log(reservation);
   let [hotelList, setHotelList] = useState();
   let [selectedHotel, setSelectedHotel] = useState();
   const api = useMemo(() => new Api(), []);
